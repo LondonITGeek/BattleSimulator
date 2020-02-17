@@ -1,38 +1,175 @@
+* {
+  font-family: 'Lacquer', sans-serif;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background: black;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.Centered {
+  margin: auto;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+progress[value] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100px;
+  margin: auto;
+  border: 1px solid black;
+  border-radius: 2px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Arena {
+  background: rgb(149,151,159);
+  background: radial-gradient(circle, rgba(149,151,159,1) 0%, rgba(62,58,59,1) 100%);
+  border-radius: 10px;
+  border: 1px solid black;
+  margin: 40px;
+  height: 60vh;
+  display: grid;
+  grid-template-areas:
+    "Header Header Header Header Header"
+    "Hero HeroDice GameSummary MonsterDice Monster"
+    "GameControls GameControls GameControls GameControls GameControls";
+}
+
+.Header {
+  grid-area: Header;
+  color: rgb(233, 198, 101);
+  margin: auto;
+  font-size: 50px;
+}
+
+.HeroZone {
+  margin: auto;
+  grid-area: Hero;
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+  width: 100px;
+}
+
+.MonsterZone {
+  margin: auto;
+  grid-area: Monster;
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+  width: 100px;  
+}
+
+.Hero {
+  margin: auto;
+  width: 100px;
+  height: 100px;
+  border-radius: 5px;
+  transition: transform 0.3s ease-in;
+}
+
+@keyframes heroAttack {
+  0% { transform: translateY(20px); }
+ 80% { transform: translateX(10px); }
+ 85% { transform: translateX(20px); }
+ 95% { transform: translateX(200px); }
+100% { transform: translateX(0px); }
+}
+
+.HeroAttacking {
+  animation-name: heroAttack;
+  animation-duration: 1s;
+}
+
+.HeroDefending {
+  transform: translateX(-20px);
+}
+
+.Breathing {
+  transform: scale(1.1, 1.2) skewX(-2deg) translateY(-8px);
+}
+
+.Dead {
+  transform: translateY(20px) rotate(90deg);
+}
+
+.Monster {
+  margin: auto;
+  width: 100px;
+  height: 100px;  
+  border-radius: 5px;
+  transition: all 0.1s ease-in;
+}
+
+@keyframes monsterAttack {
+  0% { transform: translateY(-20px); }
+ 80% { transform: translateX(-10px); }
+ 85% { transform: translateX(-20px); }
+ 95% { transform: translateX(-200px); }
+100% { transform: translateX(-0px); }
+}
+
+.MonsterAttacking {
+  animation-name: monsterAttack;
+  animation-duration: 1s;
+} 
+
+.MonsterDefending {
+  transform: translateX(20px);
+}
+
+.MonsterBreathing {
+  transform: scale(1.2, 1.5) skewX(8deg) translateY(-15px);
+}
+
+.Die {
+  background: white;
+  width: 25px;
+  height: 25px;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 5px;
+  text-align: center;
+  font-size: 22px;
+}
+
+.HeroDice {
+  margin: auto;
+  grid-area: HeroDice;
+}
+
+.GameSummary {
+  margin: auto;
+  color: white;
+  grid-area: GameSummary;
+  font-size: 25px;
+  width: 250px
+}
+
+.MonsterDice {
+  margin: auto;
+  grid-area: MonsterDice;
+}
+
+.GameControls {
+  margin: auto;
+  grid-area: GameControls;  
+}
+
+.HeroWon {
+  color: green;
+}
+
+.MonsterWon {
+  color: red;
+}
+
+button {
+  font-size: 40px;
+  border: 1px solid black;
+  border-radius: 5px;
 }
