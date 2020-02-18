@@ -7,15 +7,15 @@ export const CharacterStates = {
 }
 
 const InitialHeroState = {
-    Health: 20,
-    MaxHealth: 20,
+    Health: 100,
+    MaxHealth: 100,
     Name: "Robert",
     State: CharacterStates.INITIAL
 }
 
 const InitialMonsterState = {
-    Health: 20,
-    MaxHealth: 20,
+    Health: 100,
+    MaxHealth: 100,
     Name: "Nibbler destroyer of worlds",
     State: CharacterStates.INITIAL
 }
